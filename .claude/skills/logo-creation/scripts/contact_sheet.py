@@ -69,6 +69,8 @@ def main():
             big = L.outline(a.text, source, axes, size, x=x0 + 20 - probe['bbox'][0] * size / BIG,
                             y=y0 + 118, track=track, accent=accent)
             small = L.outline(a.text, source, axes, SMALL, x=x0 + 20, y=y0 + 156, track=track, accent=accent)
+            if accent:   # ligatures can shift indices: show where the accent landed in this font
+                print(f'{spec}: ' + ' '.join(f'{j}:{g}' for j, g in enumerate(big['glyphs'])))
             who = ', '.join(L.family_info(source['google'])['designers'][:2]) if 'google' in source else source['file']
             label = f'{i + 1}. {spec}  ·  {who}'
             body = ''

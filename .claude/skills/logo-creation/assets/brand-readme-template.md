@@ -17,7 +17,7 @@ paper; the only colour is the berry dot on the last i, the site's sunset colour.
 | `logo/{{slug}}-logo-stacked.svg`, `-stacked-reverse.svg` | Square or narrow spaces |
 | `logo/{{slug}}-icon.svg` | Icon on a circle: favicon, small spaces |
 | `logo/{{slug}}-icon-square.svg` | Full square: app icon, social avatar |
-| `png/` | The same as PNG, plus `favicon.ico`, `favicon-32/48/96.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `{{slug}}-avatar-1080.png` |
+| `png/` | The same as PNG, plus `favicon.ico`, `favicon-32/48/96.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `app-icon-1024.png` (App Store), `{{slug}}-avatar-1080.png` |
 
 ## Colours
 

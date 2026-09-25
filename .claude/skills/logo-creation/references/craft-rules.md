@@ -39,7 +39,8 @@ font halve them. `build_logo.py` prints the glyph indices you need for `kern` an
 
 - For square or narrow spaces. Lines centred on the widest line; gap 0.18-0.25 × cap height
   (`stacked.gap`, default 0.22).
-- Break at the natural word boundary; don't stack a single word.
+- Break at the natural word boundary, or at the seam of a compound name ("Tide / pool"); don't split a short
+  single word.
 
 ## Icon
 
@@ -50,6 +51,9 @@ font halve them. `build_logo.py` prints the glyph indices you need for `kern` an
 - Keep important shapes inside the central 80 % circle: Android and PWAs crop "maskable" icons to it.
 - A single letter in a circle is common. If the brief needs a more ownable icon, make the accent the rule
   (Experimental Jetset): the dot, the crop, or one line repeated everywhere.
+- The icon can carry the accent: `"icon": {"text": "i", "font_size": 360, "accent": {"glyph": 0, "part": "dot"}}`
+  gives an i whose dot takes the accent colour (`accent_color` picks another palette key). A lone i can read as an
+  "info" sign, so use it when the dot is already the brand's known signature, and check it at 16 px.
 - **Sister brands** (a second business that must look like the same family): keep the typeface, colours and
   accent, but take the icon letter from the word that tells them apart ("Martiri Gelato" uses G, because Bar
   Martiri already owns M). Two-letter monograms rarely survive 16 px: test them at true size before choosing one.
@@ -73,7 +77,8 @@ font halve them. `build_logo.py` prints the glyph indices you need for `kern` an
 - `-currentcolor.svg`: letters use `currentColor`, the accent keeps its hex, so the logo follows light and dark
   mode when inlined in a page.
 - PNG: wordmark 2400 px wide, stacked 1600, avatar 1080 square; favicons 32/48/96; manifest icons 192 and 512;
-  `apple-touch-icon.png` 180, opaque and square; `favicon.ico` with 16, 32 and 48.
+  `apple-touch-icon.png` 180 and `app-icon-1024.png` (App Store, Xcode) opaque and square; `favicon.ico` with 16, 32
+  and 48.
 
 ## Website snippet (goes in the README)
 

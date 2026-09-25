@@ -18,7 +18,7 @@ Inside the user's project (default `brand/<slug>/`, or the current folder if the
 - `logo/<slug>-logo.svg` primary, plus `-reverse`, `-ink`, `-paper` (one colour) and `-currentcolor` (for inlining in a website)
 - `logo/<slug>-logo-stacked.svg` and `-stacked-reverse` when a stacked version helps (square spaces, cups, signs)
 - `logo/<slug>-icon.svg` (circle) and `-icon-square.svg` (app icon, social avatar)
-- `png/` exports, `favicon.ico`, `apple-touch-icon.png`, `icon-192/512.png`, `<slug>-avatar-1080.png`
+- `png/` exports, `favicon.ico`, `apple-touch-icon.png`, `icon-192/512.png`, `app-icon-1024.png` (opaque, for app stores), `<slug>-avatar-1080.png`
 - `proof.png` (every version, small sizes, light and dark header), `source/logo.json` (rebuildable), `source/metrics.json`
 - `README.md` - one page of rules, from `assets/brand-readme-template.md`
 

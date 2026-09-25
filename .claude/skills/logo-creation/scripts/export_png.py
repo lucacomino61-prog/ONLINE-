@@ -30,15 +30,19 @@ def main():
              (f'{slug}-icon.svg', 'favicon-96.png', 96),
              (f'{slug}-icon.svg', 'icon-192.png', 192),
              (f'{slug}-icon-square.svg', 'apple-touch-icon.png', 180),
-             (f'{slug}-icon-square.svg', 'icon-512.png', 512)]
+             (f'{slug}-icon-square.svg', 'icon-512.png', 512),
+             (f'{slug}-icon-square.svg', 'app-icon-1024.png', 1024)]
+    opaque = {'apple-touch-icon.png', 'app-icon-1024.png'}   # iOS and the App Store reject transparency
+    from PIL import Image
     for svg_name, png_name, width in jobs:
         svg = src / svg_name
         if svg.exists():
-            L.render_svg(svg.read_text(encoding='utf-8'), dst / png_name, width)
+            out = L.render_svg(svg.read_text(encoding='utf-8'), dst / png_name, width)
+            if png_name in opaque:
+                Image.open(out).convert('RGB').save(out)
             print(png_name)
     icon = src / f'{slug}-icon.svg'
     if icon.exists():
-        from PIL import Image
         with tempfile.TemporaryDirectory() as tmp:
             big = L.render_svg(icon.read_text(encoding='utf-8'), Path(tmp) / 'icon-256.png', 256)
             Image.open(big).save(dst / 'favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)])

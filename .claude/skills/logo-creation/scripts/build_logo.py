@@ -85,11 +85,13 @@ def icon(cfg, square):
     dx, dy = ic.get('shift', [0, 0])
     x = c - (probe[0] + probe[2]) / 2 + dx * ICON_BOX
     y = c - (probe[1] + probe[3]) / 2 + dy * ICON_BOX
-    d = L.outline(ic['text'], source, axes, size, x=x, y=y, font_text=all_text(cfg))['d']
+    # an icon may carry the accent too, e.g. a lowercase i whose dot takes the accent colour
+    o = L.outline(ic['text'], source, axes, size, x=x, y=y, accent=ic.get('accent'), font_text=all_text(cfg))
     bg, fg = L.colour(cfg, ic.get('bg', 'ink')), L.colour(cfg, ic.get('fg', 'paper'))
+    acc = L.colour(cfg, ic.get('accent_color', 'accent')) if ic.get('accent') else None
     shape = (f'<rect width="{ICON_BOX}" height="{ICON_BOX}" fill="{bg}"/>' if square
              else f'<circle cx="{c:g}" cy="{c:g}" r="{c:g}" fill="{bg}"/>')
-    return L.svg_doc((0, 0, ICON_BOX, ICON_BOX), shape + f'<path fill="{fg}" d="{d}"/>',
+    return L.svg_doc((0, 0, ICON_BOX, ICON_BOX), shape + paths(o['d'], o['accent_d'], fg, acc),
                      f"{cfg['name']} icon")
 
 
