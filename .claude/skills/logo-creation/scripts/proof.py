@@ -23,8 +23,13 @@ def inline(path):
     return re.sub(r'\swidth="[^"]*"\s+height="[^"]*"', '', svg, count=1)
 
 
-def box(svg, width, extra=''):
-    return f'<div style="width:{width}px;line-height:0;{extra}">{svg}</div>' if svg else ''
+def box(svg, max_w, max_h=None, extra=''):
+    """The SVG as large as fits in max_w x max_h, keeping its proportions."""
+    if not svg:
+        return ''
+    w, h = L.svg_size(svg)
+    width = min(max_w, (max_h or 10 ** 6) * w / h)
+    return f'<div style="width:{width:.1f}px;line-height:0;{extra}">{svg}</div>'
 
 
 def main():
@@ -59,17 +64,17 @@ def main():
         c += f' · accent on paper {L.contrast(accent, paper):.1f}:1 · accent on ink {L.contrast(accent, ink):.1f}:1'
     html = f'''<!doctype html><html><body style="margin:0;width:1200px">
 <section style="{row};height:280px;background:{paper};justify-content:space-around">{tag('Primary · stacked', ink)}
-  {box(s['logo'], 640)}{box(s['logo-stacked'], 260)}</section>
+  {box(s['logo'], 640, 180)}{box(s['logo-stacked'], 260, 180)}</section>
 <section style="{row};height:220px;background:{ink};justify-content:space-around">{tag('Reverse', paper)}
-  {box(s['logo-reverse'], 480)}{box(s['logo-stacked-reverse'], 200)}</section>
+  {box(s['logo-reverse'], 480, 140)}{box(s['logo-stacked-reverse'], 200, 140)}</section>
 <section style="{row};height:200px;background:{paper};gap:28px">{tag('Icon 140 / 64 / 32 / 16 · wordmark 200 / 110 / minimum', ink)}
-  {box(s['icon'], 140)}{box(s['icon-square'], 140, 'border-radius:31px;overflow:hidden')}
+  {box(s['icon'], 140)}{box(s['icon-square'], 140, None, 'border-radius:31px;overflow:hidden')}
   {box(s['icon'], 64)}{box(s['icon'], 32)}{box(s['icon'], 16)}
-  <span style="width:24px"></span>{box(s['logo-ink'], 200)}{box(s['logo'], 110)}{box(s['logo'], min_px)}</section>
+  <span style="width:24px"></span>{box(s['logo-ink'], 200, 64)}{box(s['logo'], 110, 36)}{box(s['logo'], min_px)}</section>
 <section style="{row};height:64px;background:{paper};border-top:1px solid rgba(0,0,0,.12);border-bottom:1px solid rgba(0,0,0,.12);justify-content:space-between;color:{ink}">
-  {box(s['logo-currentcolor'], 150)}<span style="{label};color:{ink}">Website header · light</span></section>
+  {box(s['logo-currentcolor'], 150, 26)}<span style="{label};color:{ink}">Website header · light</span></section>
 <section style="{row};height:64px;background:#141414;justify-content:space-between;color:{paper}">
-  {box(s['logo-currentcolor'], 150)}<span style="{label};color:{paper}">Website header · dark</span></section>
+  {box(s['logo-currentcolor'], 150, 26)}<span style="{label};color:{paper}">Website header · dark</span></section>
 <section style="{row};height:96px;background:{paper};gap:32px">{chips}
   <span style="font:13px/1.4 system-ui,sans-serif;color:{ink};margin-left:auto">{c}</span></section>
 </body></html>'''

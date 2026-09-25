@@ -5,7 +5,8 @@
     python contact_sheet.py "Bar Martiri" --font "Newsreader:opsz=72,wght=460" \
         --font "Bodoni Moda:opsz=6,wght=900:italic" --font "file:C:/fonts/Brand.otf:wght=500"
 
-Font spec: Google Fonts family, then optional axis values, then optional ":italic".
+Font spec: Google Fonts family, then optional axis values, then optional ":italic". Add track=N to the
+values to set tracking for that candidate only ("Archivo:wdth=62,wght=800,track=40").
 Colours default to ink #151515 on paper #F4F0E8; --accent/--accent-glyph preview an accent.
 """
 import argparse
@@ -61,12 +62,13 @@ def main():
         x0, y0 = 20 + (i % 2) * (CELL_W + 20), 20 + (i // 2) * (CELL_H + 12)
         try:
             source, axes = L.parse_font_spec(spec)
-            probe = L.outline(a.text, source, axes, BIG, track=a.tracking)
+            track = axes.pop('track', a.tracking)
+            probe = L.outline(a.text, source, axes, BIG, track=track)
             w = probe['bbox'][2] - probe['bbox'][0]
             size = min(BIG, BIG * (CELL_W - 40) / max(w, 1))
             big = L.outline(a.text, source, axes, size, x=x0 + 20 - probe['bbox'][0] * size / BIG,
-                            y=y0 + 118, track=a.tracking, accent=accent)
-            small = L.outline(a.text, source, axes, SMALL, x=x0 + 20, y=y0 + 156, track=a.tracking, accent=accent)
+                            y=y0 + 118, track=track, accent=accent)
+            small = L.outline(a.text, source, axes, SMALL, x=x0 + 20, y=y0 + 156, track=track, accent=accent)
             who = ', '.join(L.family_info(source['google'])['designers'][:2]) if 'google' in source else source['file']
             label = f'{i + 1}. {spec}  ·  {who}'
             body = ''

@@ -136,6 +136,6 @@ rebuild instead of starting over; re-run the contact sheet only if the typeface 
 ## Setup
 
 - Python 3.9+ with `pip install fonttools brotli uharfbuzz pillow`.
-- A Chromium-based browser for PNGs: Chrome, Edge (always present on Windows) or Chromium; if it is not found, set `LOGO_BROWSER` to its path.
+- A Chromium-based browser for PNGs: Chrome, Edge (always present on Windows) or Chromium; if it is not found, set `LOGO_BROWSER` to its path. When each command runs in a fresh shell, put `LOGO_BROWSER=...` in front of every command rather than exporting it once.
 - Fonts download from Google Fonts on first use and are cached in `~/.cache/logo-creation` (change with `LOGO_CACHE`). A licensed local font works too: `{"file": "path/to/font.otf"}` in the config, or `--font "file:path"`.
 - Behind a proxy that re-signs TLS, point `SSL_CERT_FILE` at its CA bundle. Never disable certificate checks.

@@ -43,6 +43,19 @@ License}}. The logo files are outlines, so no font needs to be installed to use 
 - **Don't** stretch, rotate, recolour the letters, add shadows or effects, place it on busy colour or photos
   without enough contrast, or retype it in another font.
 
+## Where each file goes
+
+{{Keep only the lines that apply to this business.}}
+
+- **Shop sign, van, window:** give the sign maker `logo/{{slug}}-logo.svg` (or `-ink.svg` for one-colour cutting,
+  vinyl or engraving) and this page. They can scale the SVG to any size.
+- **Print (menus, cups, bags, stickers, receipts):** `logo/{{slug}}-logo-ink.svg` or the stacked version for square
+  spaces; receipts print the ink version in black.
+- **Instagram, Facebook, WhatsApp, Google Maps profile:** upload `png/{{slug}}-avatar-1080.png`; the platform crops
+  it to a circle and the icon stays whole.
+- **Posts and stories:** `png/{{slug}}-logo.png` or `-reverse.png` (transparent background) on top of photos with
+  enough contrast.
+
 ## On the website
 
 {{Only if there is a website: the header snippet (inline currentColor SVG with aria-hidden, CSS height) and the

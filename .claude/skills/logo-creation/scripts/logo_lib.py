@@ -283,7 +283,8 @@ def find_browser():
         return env
     pw = os.environ.get('PLAYWRIGHT_BROWSERS_PATH')
     roots = [Path(pw)] if pw else []
-    roots += [Path.home() / '.cache' / 'ms-playwright', Path.home() / 'AppData' / 'Local' / 'ms-playwright']
+    roots += [Path.home() / '.cache' / 'ms-playwright', Path.home() / 'AppData' / 'Local' / 'ms-playwright',
+              Path('/opt/pw-browsers'), Path('/ms-playwright')]   # common CI / container locations
     for root in roots:
         for pat in ('chromium-*/chrome-linux/chrome', 'chromium-*/chrome-win/chrome.exe',
                     'chromium-*/chrome-mac/Chromium.app/Contents/MacOS/Chromium'):
