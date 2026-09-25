@@ -50,6 +50,9 @@ font halve them. `build_logo.py` prints the glyph indices you need for `kern` an
 - Keep important shapes inside the central 80 % circle: Android and PWAs crop "maskable" icons to it.
 - A single letter in a circle is common. If the brief needs a more ownable icon, make the accent the rule
   (Experimental Jetset): the dot, the crop, or one line repeated everywhere.
+- **Sister brands** (a second business that must look like the same family): keep the typeface, colours and
+  accent, but take the icon letter from the word that tells them apart ("Martiri Gelato" uses G, because Bar
+  Martiri already owns M). Two-letter monograms rarely survive 16 px: test them at true size before choosing one.
 
 ## Clear space and minimum sizes
 

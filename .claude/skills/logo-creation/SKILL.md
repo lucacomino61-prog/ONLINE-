@@ -68,7 +68,8 @@ every tiny change.
 
 - Copy `assets/logo.example.json` (the Bar Martiri logo: Newsreader, site colours, berry dot on the last i) to
   `brand/<slug>/source/logo.json` and edit it: name, slug, colours, font and axes, wordmark text, tracking, kern,
-  accent, stacked lines, icon letter.
+  accent, stacked lines, icon letter. `out` is the brand folder relative to the config file: keep `".."` when the
+  config sits in `brand/<slug>/source/`, so the files land in `brand/<slug>/logo/` and `brand/<slug>/png/`.
 - `python scripts/build_logo.py brand/<slug>/source/logo.json`. It prints the glyph indices (for `kern` and
   `accent`), the aspect ratios, minimum sizes and contrast, and writes all SVGs.
 - Tune the spacing at large size, then rebuild: the word space and tracking are where craft shows (Norm and Build
@@ -136,6 +137,6 @@ rebuild instead of starting over; re-run the contact sheet only if the typeface 
 ## Setup
 
 - Python 3.9+ with `pip install fonttools brotli uharfbuzz pillow`.
-- A Chromium-based browser for PNGs: Chrome, Edge (always present on Windows) or Chromium; if it is not found, set `LOGO_BROWSER` to its path. When each command runs in a fresh shell, put `LOGO_BROWSER=...` in front of every command rather than exporting it once.
+- A Chromium-based browser for PNGs: Chrome, Edge (always present on Windows) or Chromium. The scripts find installed Chrome, Edge, Chromium and Playwright's own Chromium by themselves; if none is found, set `LOGO_BROWSER` to its path. When each command runs in a fresh shell, put `LOGO_BROWSER=...` in front of every command rather than exporting it once.
 - Fonts download from Google Fonts on first use and are cached in `~/.cache/logo-creation` (change with `LOGO_CACHE`). A licensed local font works too: `{"file": "path/to/font.otf"}` in the config, or `--font "file:path"`.
 - Behind a proxy that re-signs TLS, point `SSL_CERT_FILE` at its CA bundle. Never disable certificate checks.

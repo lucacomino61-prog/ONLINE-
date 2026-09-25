@@ -44,6 +44,7 @@ def main():
     metrics_path = cfg['_dir'] / 'metrics.json'
     metrics = json.loads(metrics_path.read_text()) if metrics_path.exists() else {}
     min_px = metrics.get('wordmark', {}).get('min_width_px', 96)
+    mid = min(160, round(min_px * 1.5))
     s = {k: inline(src / f'{slug}-{k}.svg') for k in (
         'logo', 'logo-reverse', 'logo-ink', 'logo-currentcolor', 'logo-stacked',
         'logo-stacked-reverse', 'icon', 'icon-square')}
@@ -67,10 +68,10 @@ def main():
   {box(s['logo'], 640, 180)}{box(s['logo-stacked'], 260, 180)}</section>
 <section style="{row};height:220px;background:{ink};justify-content:space-around">{tag('Reverse', paper)}
   {box(s['logo-reverse'], 480, 140)}{box(s['logo-stacked-reverse'], 200, 140)}</section>
-<section style="{row};height:200px;background:{paper};gap:28px">{tag('Icon 140 / 64 / 32 / 16 · wordmark 200 / 110 / minimum', ink)}
+<section style="{row};height:200px;background:{paper};gap:28px">{tag(f'Icon 140 / 64 / 32 / 16 · wordmark 200 / {mid} / {min_px} (minimum) px', ink)}
   {box(s['icon'], 140)}{box(s['icon-square'], 140, None, 'border-radius:31px;overflow:hidden')}
   {box(s['icon'], 64)}{box(s['icon'], 32)}{box(s['icon'], 16)}
-  <span style="width:24px"></span>{box(s['logo-ink'], 200, 64)}{box(s['logo'], 110, 36)}{box(s['logo'], min_px)}</section>
+  <span style="width:24px"></span>{box(s['logo-ink'], 200, 64)}{box(s['logo'], mid, 36)}{box(s['logo'], min_px)}</section>
 <section style="{row};height:64px;background:{paper};border-top:1px solid rgba(0,0,0,.12);border-bottom:1px solid rgba(0,0,0,.12);justify-content:space-between;color:{ink}">
   {box(s['logo-currentcolor'], 150, 26)}<span style="{label};color:{ink}">Website header · light</span></section>
 <section style="{row};height:64px;background:#141414;justify-content:space-between;color:{paper}">
