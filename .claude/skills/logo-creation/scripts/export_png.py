@@ -22,7 +22,7 @@ def main():
     slug = cfg['slug']
     src, dst = cfg['_out'] / 'logo', cfg['_out'] / 'png'
     dst.mkdir(parents=True, exist_ok=True)
-    jobs = [(f'{slug}-logo{s}.svg', f'{slug}-logo{s}.png', 2400) for s in ('', '-reverse', '-ink', '-paper')]
+    jobs = [(f'{slug}-logo{s}.svg', f'{slug}-logo{s}.png', 2400) for s in ('', '-reverse', '-ink', '-paper', '-black')]
     jobs += [(f'{slug}-logo-stacked{s}.svg', f'{slug}-logo-stacked{s}.png', 1600) for s in ('', '-reverse')]
     jobs += [(f'{slug}-icon-square.svg', f'{slug}-avatar-1080.png', 1080),
              (f'{slug}-icon.svg', 'favicon-32.png', 32),

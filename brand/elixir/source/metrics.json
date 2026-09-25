@@ -1,0 +1,15 @@
+{
+  "wordmark": {
+    "aspect": 5.652,
+    "xheight_ratio": 0.608,
+    "min_width_px": 76,
+    "min_width_mm": 19
+  },
+  "icon": {
+    "min_width_px": 16,
+    "min_width_mm": 5
+  },
+  "contrast": {
+    "ink_on_paper": 10.67
+  }
+}

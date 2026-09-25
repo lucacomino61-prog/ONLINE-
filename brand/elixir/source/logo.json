@@ -1,0 +1,33 @@
+{
+  "name": "Elixir",
+  "slug": "elixir",
+  "out": "..",
+  "colors": {
+    "ink": "#5A2132",
+    "paper": "#F3EEE1"
+  },
+  "font": {
+    "google": "Bodoni Moda"
+  },
+  "axes": {
+    "opsz": 18,
+    "wght": 560
+  },
+  "wordmark": {
+    "text": "ELIXIR",
+    "tracking": 320,
+    "kern": {
+      "2": -30
+    }
+  },
+  "icon": {
+    "text": "E",
+    "font_size": 320,
+    "axes": {
+      "opsz": 6,
+      "wght": 700
+    },
+    "bg": "ink",
+    "fg": "paper"
+  }
+}

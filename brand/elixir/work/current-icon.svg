@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">Elixir</title>
+  <!-- L'icona che Google mette accanto al risultato, e che il browser mette
+       nella scheda. Si vede a 16 px: tutto quello che e' sottile a quella
+       dimensione sparisce, e quello che dipende da un font puo' non arrivare.
+
+       COSA C'ERA PRIMA E PERCHE' NON ANDAVA
+       1. Fondo #05030b (quasi nero) e lettera #e0b463 (oro): due colori che sul
+          sito NON esistono da nessuna parte. La palette vera e' crema #f5efe3
+          con accento #c2185b — l'icona veniva da un design precedente e non
+          somigliava piu' al negozio.
+       2. Era un <text> in Georgia peso 500. Un font di sistema, con le aste
+          sottili di un serif: a 16 px la E si impastava. E il testo di un SVG
+          si centra sulla LARGHEZZA DI AVANZAMENTO del glifo, non sul suo
+          inchiostro, quindi la lettera non era nemmeno sull'asse.
+
+       COSA C'E' ORA
+       Fondo #c2185b, l'accento del sito: in una pagina di risultati Google,
+       una tessera di colore pieno si distingue fra decine di icone scure e
+       generiche. La E e' disegnata a rettangoli — nessun font da caricare,
+       nessuna dipendenza dal sistema, bordi netti a qualunque dimensione — con
+       aste da 7 unita' su 64, cioe' ~1,75 px a 16 px: sopra la soglia in cui
+       una linea sparisce.
+
+       Fondo a tutta tessera e mark nella zona centrale: il manifest la dichiara
+       `any maskable`, quindi la piattaforma puo' ritagliarla a cerchio e il
+       colore deve arrivare fino al bordo. La E sta dentro un riquadro di 24x28
+       centrato, ben dentro il cerchio di sicurezza. -->
+  <rect width="64" height="64" fill="#c2185b"/>
+  <g fill="#fff8ec">
+    <!-- Asta verticale. -->
+    <rect x="20" y="18" width="7" height="28"/>
+    <!-- Braccio alto e basso a piena larghezza; quello di mezzo piu' corto,
+         com'e' in una E disegnata bene. -->
+    <rect x="20" y="18" width="24" height="7"/>
+    <rect x="20" y="28.5" width="19" height="6"/>
+    <rect x="20" y="39" width="24" height="7"/>
+  </g>
+</svg>

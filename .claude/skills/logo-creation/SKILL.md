@@ -15,7 +15,7 @@ confident recommendation.
 
 Inside the user's project (default `brand/<slug>/`, or the current folder if there is no project):
 
-- `logo/<slug>-logo.svg` primary, plus `-reverse`, `-ink`, `-paper` (one colour) and `-currentcolor` (for inlining in a website)
+- `logo/<slug>-logo.svg` primary, plus `-reverse`, `-ink`, `-paper` (one colour), `-black` (pure black for receipts and stamps) and `-currentcolor` (for inlining in a website)
 - `logo/<slug>-logo-stacked.svg` and `-stacked-reverse` when a stacked version helps (square spaces, cups, signs)
 - `logo/<slug>-icon.svg` (circle) and `-icon-square.svg` (app icon, social avatar)
 - `png/` exports, `favicon.ico`, `apple-touch-icon.png`, `icon-192/512.png`, `app-icon-1024.png` (opaque, for app stores), `<slug>-avatar-1080.png`

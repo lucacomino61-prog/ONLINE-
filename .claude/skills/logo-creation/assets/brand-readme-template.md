@@ -13,6 +13,7 @@ paper; the only colour is the berry dot on the last i, the site's sunset colour.
 | `logo/{{slug}}-logo-reverse.svg` | On {{ink}} or dark photos |
 | `logo/{{slug}}-logo-ink.svg` | One colour, ink only: receipts, stamps, engraving, anything printed in one colour |
 | `logo/{{slug}}-logo-paper.svg` | One colour, paper only, on dark |
+| `logo/{{slug}}-logo-black.svg` | Pure black: thermal receipts, rubber stamps, fax, laser engraving |
 | `logo/{{slug}}-logo-currentcolor.svg` | For inlining in a website: letters take the text colour (light and dark mode) |
 | `logo/{{slug}}-logo-stacked.svg`, `-stacked-reverse.svg` | Square or narrow spaces |
 | `logo/{{slug}}-icon.svg` | Icon on a circle: favicon, small spaces |

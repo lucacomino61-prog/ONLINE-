@@ -120,6 +120,8 @@ def main():
     files[f'{slug}-logo-ink.svg'] = L.svg_doc(v, paths(wm['d'], wm['accent_d'], ink, None), name)
     files[f'{slug}-logo-paper.svg'] = L.svg_doc(v, paths(wm['d'], wm['accent_d'], paper, None), name)
     files[f'{slug}-logo-currentcolor.svg'] = L.svg_doc(v, paths(wm['d'], wm['accent_d'], 'currentColor', accent), name)
+    # pure black for one-colour print (receipts, stamps, fax), whatever the brand ink is
+    files[f'{slug}-logo-black.svg'] = L.svg_doc(v, paths(wm['d'], wm['accent_d'], '#000000', None), name)
     m = wm['metrics']
     xh = SIZE * m['xheight'] / m['upm']
     metrics['wordmark'] = {'aspect': round(v[2] / v[3], 3), 'xheight_ratio': round(xh / v[3], 3),
