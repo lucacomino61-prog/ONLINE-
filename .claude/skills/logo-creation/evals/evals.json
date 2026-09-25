@@ -1,0 +1,23 @@
+{
+  "skill_name": "logo-creation",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "make a logo for my friend's barber shop in Tirana, it's called Kapo. he wants something minimal, black and white, no website yet. he needs it for the shop sign and instagram",
+      "expected_output": "A complete minimal logo set for 'Kapo' in black and white: outlined SVG wordmark and variants, icon, Instagram avatar, PNGs and favicon, proof.png, README with rules; one recommendation with reasoning; no invented facts.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We just opened a small gelato kiosk next to Bar Martiri in Spille and need a logo for it. Call it 'Martiri Gelato'. It should clearly belong to the same family as barmartiri.com, so follow the website's colours, and keep it minimal.",
+      "expected_output": "Reads barmartiri.com's colours and fonts with site_palette.py, reuses ink/paper and one ice-cream accent, produces the full logo set with icon and favicons, a proof and a README; recommendation explains the family link to Bar Martiri.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I'm launching a calm little note-taking app called Tidepool (working name). Need a logo plus favicon and an app icon that looks good on an iPhone home screen. Modern but not cold.",
+      "expected_output": "A modern, warm wordmark and a strong app icon (square, full-bleed), favicon set, proof showing the icon at small sizes, README; no invented claims about the app.",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Bar Martiri",
+  "slug": "bar-martiri",
+  "out": "..",
+  "colors": {
+    "ink": "#151515",
+    "paper": "#F4F0E8",
+    "accent": "#E55C87"
+  },
+  "font": { "google": "Newsreader" },
+  "axes": { "opsz": 72, "wght": 460 },
+  "wordmark": {
+    "text": "Bar Martiri",
+    "tracking": -10,
+    "kern": { "4": -50 },
+    "accent": { "glyph": 10, "part": "dot" }
+  },
+  "stacked": {
+    "lines": ["Bar", "Martiri"],
+    "align": "center",
+    "gap": 0.22,
+    "accent": { "line": 1, "glyph": 6, "part": "dot" }
+  },
+  "icon": {
+    "text": "M",
+    "font_size": 330,
+    "bg": "ink",
+    "fg": "paper"
+  }
+}
